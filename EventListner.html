@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event-listner</title>
+</head>
+<body>
+    <div>
+        <button type="button" id="add" onclick="addEvent()">add event</button>
+        <button type="button" id="remove" onclick="removeEvent()">remove event</button>
+        <button type="button" id="get">get event</button>
+<div id="div1"></div>
+
+
+    </div>
+
+
+    <script>
+        addEvent = ()=>{
+            document.getElementById('get').addEventListener('click',addCustom);
+
+        }
+
+        removeEvent = ()=>{
+            document.getElementById('get').removeEventListener('click',addCustom);
+          
+        }
+
+        addCustom = () =>{
+            alert("add");
+           const para = document.createElement("p");
+           const data = document.createTextNode("Hello from para");
+            
+            
+            const inp = document.createElement("input");
+            inp.setAttributes("type",text)
+            inp.setAttributes("name",nm);
+            para.appendChild(data);
+           const div1 =  document.getElementById("div1");
+            div1.appendChild(para);
+            alert(div1);
+            div1.appendChild(inp);
+            
+
+            
+        }
+    </script>
+</body>
+</html>

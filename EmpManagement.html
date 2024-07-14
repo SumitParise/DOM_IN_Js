@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmpMgmt</title>
+
+    <script>
+        let emparr = [{      // array of objects that already has some values
+                        id:11,
+                        name:"Sumit",
+                        address:"Pune"
+        }];
+
+        // let emparr = [];  empty array that will fill with objects
+
+        addEmp = () =>{
+                id =  Number(document.getElementById('id').value);
+                document.getElementById('id').value = "";
+                name =  document.getElementById('name').value;
+                document.getElementById('name').value = "";
+                address = document.getElementById('address').value;
+                document.getElementById('address').value = "";
+
+                const e = {  // this is new ES6 way of putting values into objects
+                    id,
+                    name,
+                    address
+                }
+
+                emparr.push(e);
+                displayData();
+                console.log(emparr);
+        }
+         
+                
+                 
+
+        searchEmp = () =>{
+            id =  Number(document.getElementById('id').value);
+
+            getEmp = emparr.find(x=>x.id==id); 
+            if(getEmp!=null){
+                getEmp.address = "Pune"; // assign property later here
+            console.log(getEmp);
+            }else{
+                console.log("not found");
+            }            
+        }
+
+        displayData = () =>{
+            str = "<table border=2><tr><th>Id</th><th>Name</th><th>Address</th>";           //dynamically generate table here
+                for(emp of emparr){
+                    str+=`<tr><td>${emp.id}</td><td>${emp.name}</td><td>${emp.address}</td>`
+                }
+                str+="</table>"
+                document.getElementById('output').innerHTML=str;
+        }
+
+
+
+    </script>
+</head>
+<body onload="displayData()">
+    <h1>Employee Management</h1>
+    id : <input type="text" id="id" />
+    name : <input type="text" id="name" />
+    address : <input type="text" id="address" />
+    <button type="button" onclick="addEmp()">Add Employee</button>
+    <button type="button"onclick="searchEmp()">Search Employee</button>
+
+<div id="output" style="margin-top: 5rem; background-color: black; color: aliceblue; text-align: center; width: 30rem;"></div>
+    
+</body>
+</html>

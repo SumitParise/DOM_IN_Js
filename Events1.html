@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+
+    <style>
+        .mydiv{
+            background-color: blueviolet;
+            height: 11rem;
+            width: 50%;
+        }
+
+        .mydiv1{
+            background-color:tomato;
+            height: 11rem;
+            width: 50%;
+            color: aliceblue;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="mydiv" id="div" onmouseover="drag('mydiv')" onmouseout="drag('mydiv1')">Hello.... From div</div>
+
+
+
+    <script>
+
+drag = (classForStyle)=>{
+  
+    document.getElementById('div').className=classForStyle;
+}
+
+
+    </script>
+</body>
+</html>

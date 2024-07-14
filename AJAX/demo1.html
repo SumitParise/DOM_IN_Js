@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo1</title>
+
+    <script>
+        getData = () =>{
+            
+            // step 1 --> create obj of XMLHttpRequest
+
+            let xhr = new XMLHttpRequest();
+
+            // step 2 --> generate request
+
+            xhr.open("GET","https://jsonplaceholder.typicode.com/posts/11",true)  // by putting true here req goes assynchronously
+
+            // step 3 --> configure XMLHttpRequest object by assigning fun() to to onreadystatechange
+            
+            xhr.onreadystatechange=function(){   // it's just a event we wrote here when send call it. it'll execute
+
+                alert(xhr.readyState);
+
+                if(xhr.readyState==4 && xhr.status == 200){
+                    alert(xhr.readyState);
+                    alert(xhr.responseText)
+                    console.log(xhr.responseText);
+                    console.log(xhr.responseType);
+                    const ob = JSON.parse(xhr.responseText);
+
+                     // step 5 ---> Once data received show it on page
+
+                    document.getElementById('myop').innerHTML = ob.body;
+                    
+                }
+            }
+
+            // step 4 --> Send the request
+
+            xhr.send();
+
+           
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+
+    <div style="text-align: center;">
+        <form>
+           Id : <input type="text" id="num"/>
+           <button type="button" onclick="getData()">Get Data</button>
+        </form>
+    <div id="myop"></div>
+    </div>
+
+
+    
+</body>
+</html>
